@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\libs\StartAppInApp-2.4.3.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3cab78eae4f73fd3c27adc4af1d595e99ccc2b25">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\StartAppInApp-2.4.3-f46e49ef86c5e0519e0cac74c97fdd095bacc040.jar" />
+    </item>
+    <item
+        jar="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-d270b277c0d91ad55a5794ea0dd2a01993b6a889.jar" />
+    </item>
+    <item
+        jar="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\classes-2cd58de20e5a8dc8c5fa12f3a13d291c0fc29d5e.jar" />
+    </item>
+    <item
+        jar="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\classes-b81e8df881b7bb75083a313dea77fd7e017e5667.jar" />
+    </item>
+    <item
+        jar="D:\IT\adt-bundle-windows-x86_64\adt-bundle-windows-x86_64-20140624\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-6fb1f8f351137201b611181bd6bc4d3307bd74d8.jar" />
+    </item>
+    <item
+        jar="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\2016 - Android studio wsp\p3_dota2fanartwallpaper\app\build\intermediates\pre-dexed\debug\classes-c136e8c7694fa2ab0f41502ae4e796a7f76939cd.jar" />
+    </item>
+
+</items>
