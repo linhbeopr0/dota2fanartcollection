@@ -1,6 +1,7 @@
 package boidstudio.vn.p3_dota2fanartwallpaper.activity;
 
 import boidstudio.vn.p3_dota2fanartwallpaper.R;
+import boidstudio.vn.p3_dota2fanartwallpaper.Utils.Utilities;
 import boidstudio.vn.p3_dota2fanartwallpaper.adapter.ListImagesRecyclerAdapter;
 
 import com.startapp.android.publish.Ad;
@@ -19,6 +20,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,8 +40,7 @@ public class ListImagesActivity extends Activity {
     private int mReducedData[];
     private int mLength;
 
-    public static int UPDATE_MESSAGE = 99;
-    public static int SCROLL_TO_LOADED_IMAGE = 100;
+
     public int size = 0;
     public int currentPos = 0;
 
@@ -48,10 +49,10 @@ public class ListImagesActivity extends Activity {
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
-            if (msg.what == UPDATE_MESSAGE) {
+            if (msg.what == Utilities.UPDATE_MESSAGE) {
                 Log.d("LINH", "UPDATE DATA...!");
                 new LoadMoreAsyncTask().execute();
-            } else if (msg.what == SCROLL_TO_LOADED_IMAGE) {
+            } else if (msg.what == Utilities.SCROLL_TO_LOADED_IMAGE) {
                 Log.d("LINH", "SCROLL_TO_LOADED_IMAGE " + msg.arg1);
                 mHorizontalGridview.smoothScrollToPosition(msg.arg1);
             }
@@ -74,7 +75,8 @@ public class ListImagesActivity extends Activity {
 
         mLength = mFullData.length;
         mReducedData = new int[mLength];
-        int newSize = size + 30;
+
+        int newSize = size + 18;
         if (newSize > mLength && mLength > 0) {
             newSize = mLength;
         }
@@ -82,13 +84,15 @@ public class ListImagesActivity extends Activity {
         for (int i = size; i < newSize; i++) {
             mReducedData[i] = mFullData[i];
         }
-        size += 30;
+        size += 18;
 
         mHorizontalGridview = (RecyclerView) findViewById(R.id.horizontalListView);
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(
-                mContext, LinearLayoutManager.HORIZONTAL, true);
-        mHorizontalGridview.setLayoutManager(horizontalLayoutManager);
-        mAdapter = new ListImagesRecyclerAdapter(mContext, mReducedData);
+      /*  LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(
+                mContext, LinearLayoutManager.HORIZONTAL, true);*/
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3, GridLayoutManager.HORIZONTAL, false);
+        mHorizontalGridview.setLayoutManager(gridLayoutManager);
+        mAdapter = new ListImagesRecyclerAdapter(mContext, mReducedData, size, mHandler);
+        mHorizontalGridview.setAdapter(mAdapter);
 //		ListImageRecyclerApdater adapter = new ListImageRecyclerApdater(mContext, mReducedData);
 //		mHorizontalGridview.setAdapter(adapter);
 
@@ -129,14 +133,14 @@ public class ListImagesActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            int newSize = size + 30;
+            int newSize = size + 18;
             if (newSize > mLength && mLength > 0) {
                 newSize = mLength;
             }
             for (int i = size; i < newSize; i++) {
                 mReducedData[i] = mFullData[i];
             }
-            size += 30;
+            size += 18;
             return null;
         }
 

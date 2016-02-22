@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="boidstudio.vn.p3_dota2fanartwallpaper">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="boidstudio.vn.p3_dota2fanartwallpaper.activity.ListImagesActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="boidstudio.vn.p3_dota2fanartwallpaper.activity.FullScreenActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
 
 
         <!-- StartApp activities integration -->

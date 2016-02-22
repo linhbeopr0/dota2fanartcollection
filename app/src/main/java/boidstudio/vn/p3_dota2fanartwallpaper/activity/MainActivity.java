@@ -38,25 +38,23 @@ import boidstudio.vn.p3_dota2fanartwallpaper.R;
 
 public class MainActivity extends Activity {
 
+    private Context mContext;
     private ImageView[] mImgList;
-    private int[] mImgListIdx;
     private RelativeLayout mBtnCategory;
     private TextView mTextBanner;
 
-    private Context mContext;
     public static int SIZE = 100;
     private int ITEM_SIZE = 14;
+    private int[] mImgListIdx;
+    public static int mData[];
+    public static int mCtLoadingIndex = 0;
+
+    private static Typeface Rabanera_shadow_font;
 
     private Thread mThread;
     private Handler mHandler;
-    public static int mCtLoadingIndex = 0;
-
 
     private StartAppAd startAppAd = new StartAppAd(this);
-
-
-    public static int mData[];
-    private static Typeface Rabanera_shadow_font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,23 +3,34 @@ package boidstudio.vn.p3_dota2fanartwallpaper.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+
 import boidstudio.vn.p3_dota2fanartwallpaper.R;
+import boidstudio.vn.p3_dota2fanartwallpaper.Utils.Utilities;
+import boidstudio.vn.p3_dota2fanartwallpaper.activity.MainActivity;
 
 public class ListImagesRecyclerAdapter extends
         RecyclerView.Adapter<ListImagesRecyclerAdapter.ListImageHolder> {
 
     private Context mContext;
     private int mData[];
+    private int mLength;
+    private int mCount;
+    private Handler mHandler;
 
-    public ListImagesRecyclerAdapter(Context ctx, int[] data) {
+    public ListImagesRecyclerAdapter(Context ctx, int[] data, int length, Handler handler) {
         mContext = ctx;
         mData = data;
+        mLength = length;
+        mHandler = handler;
+        mCount = 1;
     }
 
     public class ListImageHolder extends RecyclerView.ViewHolder {
@@ -33,12 +44,19 @@ public class ListImagesRecyclerAdapter extends
 
     @Override
     public int getItemCount() {
-        // TODO Auto-generated method stub
-        return mData.length;
+        return mLength;
     }
 
     @Override
     public void onBindViewHolder(ListImageHolder holder, int pos) {
+        if (pos == ((mCount * 18) - 5)) {
+            mHandler.sendEmptyMessage(Utilities.UPDATE_MESSAGE);
+            mCount++;
+        }
+
+        int screenSize[] = Utilities.getScreenSize(mContext);
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(screenSize[0] / 3, screenSize[1] / 3);
+        holder.iv.setLayoutParams(lp);
         setPic(holder.iv, mData[pos]);
     }
 
@@ -63,7 +81,7 @@ public class ListImagesRecyclerAdapter extends
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
-        int scaleFactor = /* Math.min(photoW/targetW, photoH/targetH) */10;
+        int scaleFactor = /* Math.min(photoW/targetW, photoH/targetH) */5;
 
         // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
@@ -74,4 +92,5 @@ public class ListImagesRecyclerAdapter extends
                 id, bmOptions);
         mImageView.setImageBitmap(bitmap);
     }
+
 }
